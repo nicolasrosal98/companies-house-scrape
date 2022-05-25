@@ -22,9 +22,9 @@ interface companyInfo {
     }
 }
 
-function companyScaper(companyName: string[]): companyInfo[] {
+async function companyScaper(companyName: string[]): Promise<companyInfo[]> {
     const add: companyInfo[] = [];
-    axios(url+`${companyName}`, header)
+    await axios(url+`${companyName}`, header)
         .then(response => {
             const companyInformation = {
                 companyNumber: response.data.items[0].company_number,
