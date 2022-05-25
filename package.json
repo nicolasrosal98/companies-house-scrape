@@ -6,7 +6,8 @@
     "format:check": "prettier --check src",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "start": "tsc && node dist/scraper.js"
+    "start-scrape": "tsc && node dist/scraper.js",
+    "start-convert":  "tsc && node dist/jsons2csv.js"
   },
   "license": "CC-BY-NC-ND-4.0",
   "devDependencies": {
