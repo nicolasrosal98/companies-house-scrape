@@ -6,7 +6,7 @@
     "format:check": "prettier --check src",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "start": "tsc && node dist/server.js",
+    "start": "node dist/server.js",
     "start-scrape": "tsc && node dist/scraper.js",
     "start-convert": "tsc && node dist/jsons2csv.js"
   },
