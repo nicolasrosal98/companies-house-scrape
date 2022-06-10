@@ -20,7 +20,7 @@ interface companyInfo {
   companyAddress: string;
 }
 
-async function companyScaper(companiesNames: string[]): Promise<void> {
+async function companyScaper(companiesNames: string[]): Promise<companyInfo[]> {
   const companies: companyInfo[] = [];
   try {
     for (const companyName of companiesNames) {
@@ -39,13 +39,15 @@ async function companyScaper(companiesNames: string[]): Promise<void> {
   } catch (error) {
     console.error(error);
   }
-  const sheet = XLSX.utils.json_to_sheet(companies);
-  const excel = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(excel, sheet, "Company Information");
-  XLSX.writeFile(excel, "./companyInformation/companyinfo.xlsx");
+  // const sheet = XLSX.utils.json_to_sheet(companies);
+  // const excel = XLSX.utils.book_new();
+  // XLSX.utils.book_append_sheet(excel, sheet, "Company Information");
+  // XLSX.writeFile(excel, "./companyInformation/companyinfo.xlsx");
+  return companies;
 }
 
-(async function () {
-  const response = await companyScaper(["Zalario", "Uber Eats"]);
-  return response;
-})();
+export default companyScaper;
+// (async function () {
+//   const response = await companyScaper(["Zalario", "Uber Eats"]);
+//   return response;
+// })();
