@@ -7,8 +7,9 @@
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "start": "node dist/server.js",
-    "start-scrape": "tsc && node dist/scraper.js",
-    "start-convert": "tsc && node dist/jsons2csv.js"
+    "start-scrape": "node dist/scraper.js",
+    "start-convert": "node dist/jsons2csv.js",
+    "postinstall": "tsc"
   },
   "license": "CC-BY-NC-ND-4.0",
   "devDependencies": {
