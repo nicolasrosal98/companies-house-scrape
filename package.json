@@ -7,11 +7,26 @@
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "start-scrape": "tsc && node dist/scraper.js",
-    "start-convert": "tsc && node dist/jsons2csv.js"
+    "start-convert": "tsc && node dist/jsons2csv.js",
+    "start": "react-scripts start"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }, 
   "license": "CC-BY-NC-ND-4.0",
   "devDependencies": {
     "@types/node": "^14.14.20",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.28.0",
@@ -21,6 +36,9 @@
   "dependencies": {
     "axios": "^0.27.2",
     "dotenv": "^10.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1",
     "xlsx": "^0.18.5"
   }
 }

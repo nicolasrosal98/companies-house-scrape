@@ -1,8 +1,8 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import axios from "axios";
-import XLSX = require("xlsx");
+// import XLSX = require("xlsx");
 
-dotenv.config();
+// dotenv.config();
 
 const API_KEY = process.env.API_KEY ?? "no-api";
 const url =
@@ -13,14 +13,14 @@ const header = {
   },
 };
 
-interface companyInfo {
+export interface companyInfo {
   companyNumber: string;
   companyName: string;
   incorporatedDate: string;
   companyAddress: string;
 }
 
-async function companyScaper(companiesNames: string[]): Promise<void> {
+async function companyScaper(companiesNames: string[]): Promise<companyInfo[]> {
   const companies: companyInfo[] = [];
   try {
     for (const companyName of companiesNames) {
@@ -39,13 +39,15 @@ async function companyScaper(companiesNames: string[]): Promise<void> {
   } catch (error) {
     console.error(error);
   }
-  const sheet = XLSX.utils.json_to_sheet(companies);
-  const excel = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(excel, sheet, "Company Information");
-  XLSX.writeFile(excel, "./companyInformation/companyinfo.xlsx");
+  return companies;
+  // const sheet = XLSX.utils.json_to_sheet(companies);
+  // const excel = XLSX.utils.book_new();
+  // XLSX.utils.book_append_sheet(excel, sheet, "Company Information");
+  // XLSX.writeFile(excel, "./companyInformation/companyinfo.xlsx");
 }
 
-(async function () {
-  const response = await companyScaper(["Zalario", "Uber Eats"]);
-  return response;
-})();
+export default companyScaper;
+// (async function () {
+//   const response = await companyScaper(["Zalario", "Uber Eats"]);
+//   return response;
+// })();
