@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "start-scrape": "tsc && node dist/scraper.js",
     "start-convert": "tsc && node dist/jsons2csv.js",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "browserslist": {
     "production": [
