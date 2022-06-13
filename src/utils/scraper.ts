@@ -1,16 +1,13 @@
-// import dotenv from "dotenv";
 import axios from "axios";
-// import XLSX = require("xlsx");
 
-// dotenv.config();
-
-const API_KEY = process.env.API_KEY ?? "no-api";
+const API_KEY = process.env.REACT_APP_API_KEY ?? "no-api";
 const url =
   "https://api.company-information.service.gov.uk/search/companies?q=";
 const header = {
   headers: {
-    Authorization: API_KEY,
+    Authorization: "Basic " + btoa(API_KEY + ":"),
   },
+  crossDomain: true,
 };
 
 export interface companyInfo {
@@ -40,14 +37,6 @@ async function companyScaper(companiesNames: string[]): Promise<companyInfo[]> {
     console.error(error);
   }
   return companies;
-  // const sheet = XLSX.utils.json_to_sheet(companies);
-  // const excel = XLSX.utils.book_new();
-  // XLSX.utils.book_append_sheet(excel, sheet, "Company Information");
-  // XLSX.writeFile(excel, "./companyInformation/companyinfo.xlsx");
 }
 
 export default companyScaper;
-// (async function () {
-//   const response = await companyScaper(["Zalario", "Uber Eats"]);
-//   return response;
-// })();
