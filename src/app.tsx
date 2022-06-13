@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import formatInput from "./utils/formatInput";
-import companyScaper, { companyInfo } from "./scraper";
+import companyScaper, { companyInfo } from "./utils/scraper";
 import CompanyCard from "./components/companyCard";
 import ReactPaginate from "react-paginate";
 
