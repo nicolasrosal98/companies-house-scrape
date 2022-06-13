@@ -43,7 +43,7 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
-    console.log(scrapeResult)
+    console.log(scrapeResult);
   }, [scrapeResult]);
 
   return (
