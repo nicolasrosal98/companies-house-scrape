@@ -20,7 +20,7 @@ app.get("/:listOfCompanies", async (req, res) => {
   const companies = req.params.listOfCompanies;
   const listOfCompanies = cleanSearchList(companies);
   const companyInformation = await companyScraper(listOfCompanies);
-  res.json(companyInformation);
+  await res.json(companyInformation);
 });
 
 const port = process.env.PORT;
