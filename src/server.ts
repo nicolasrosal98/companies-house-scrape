@@ -17,10 +17,15 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/:listOfCompanies", async (req, res) => {
+  console.log(req.params);
   const companies = req.params.listOfCompanies;
   const listOfCompanies = cleanSearchList(companies);
-  const companyInformation = await companyScraper(listOfCompanies);
-  await res.json(companyInformation);
+  const response = await companyScraper(listOfCompanies);
+  if (typeof response === "string") {
+    res.status(500).send(response);
+  } else {
+    res.json(response);
+  }
 });
 
 const port = process.env.PORT;
@@ -28,5 +33,5 @@ if (!port) {
   throw "Missing PORT environment variable.  Set it in .env file.";
 }
 app.listen(port, () => {
-  console.log(`Server is up and running on port ${port}`);
+  console.log(`Nico's server is running on port ${port}`);
 });
