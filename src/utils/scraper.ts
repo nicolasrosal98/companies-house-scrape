@@ -24,8 +24,10 @@ async function companyScaper(
     for (const companyName of companiesNames) {
       console.log({ companyName });
       const finalUrl = url + `${companyName.replace(" ", "-")}`;
+      const finalHeaders = { Authorization: API_KEY };
+      console.log({ finalUrl }, { finalHeaders });
       const response = await axios(finalUrl, {
-        headers: { Authorization: API_KEY },
+        headers: finalHeaders,
       });
       if (response.data.items.length > 0) {
         const companyInformation = {
